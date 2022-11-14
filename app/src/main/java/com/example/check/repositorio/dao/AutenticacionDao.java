@@ -15,6 +15,9 @@ public class AutenticacionDao {
             return false;
         }else if(passcon==null || passcon.equals("")){
             return false;
-        }else return pass.equals(passcon);
+        }else if (!pass.equals(passcon)) {
+            return false;
+        }
+        else return true;
     }
 }
