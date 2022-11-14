@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.check.controlador.fragmento.Fragmento_Login;
@@ -35,6 +36,7 @@ public class ActividadInicio extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        FirebaseAuth.getInstance().signOut();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log);
         tokenAutenticacion = FirebaseAuth.getInstance();
@@ -73,8 +75,8 @@ public class ActividadInicio extends AppCompatActivity {
 
     public void ingresar(View view) {
 
-        ExpandableHintText editTextUser = findViewById(R.id.user);
-        ExpandableHintText editTextPass = findViewById(R.id.pass);
+        TextView editTextUser = findViewById(R.id.user);
+        TextView editTextPass = findViewById(R.id.pass);
         String user = editTextUser.getText().toString();
         String pass = editTextPass.getText().toString();
 

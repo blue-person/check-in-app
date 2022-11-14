@@ -6,14 +6,14 @@ plugins {
     id "org.sonarqube" version "3.5.0.2730"
 }
 
-task jacocoTestReport(type: JacocoReport, dependsOn: ["testDebugUnitTest", "createDebugCoverageReport"]) {
+task jacocoTestReport(type: JacocoReport, dependsOn: ["testDebugUnitTest", "createDebugAndroidTestCoverageReport", "connectedAndroidTest"]) {
 
     reports {
         xml.enabled true
         html.enabled true
     }
 
-    def fileFilter = ['**/R.class', '**/R$*.class', '**/BuildConfig.*', '**/Manifest*.*', '**/*Test*.*', 'android/**/*.*', "**/dto/**", "**/entity/*", "**/config/*" , "**/databinding*.*"]
+    def fileFilter = []
     def debugTree = fileTree(dir: "${buildDir}/intermediates/classes/debug", excludes: fileFilter)
     def mainSrc = "${project.projectDir}/src/main/java"
 
@@ -21,6 +21,7 @@ task jacocoTestReport(type: JacocoReport, dependsOn: ["testDebugUnitTest", "crea
     classDirectories.setFrom(files([debugTree]))
     executionData.setFrom(fileTree(dir: "$buildDir", includes: ["jacoco/testDebugUnitTest.exec",
                                                                 "outputs/code-coverage/connected/*coverage.ec"]))
+
 }
 
 sonar {
@@ -78,6 +79,7 @@ android {
         includeInBundle false
         includeInApk false
     }
+
 }
 
 dependencies {

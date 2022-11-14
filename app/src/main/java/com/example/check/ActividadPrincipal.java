@@ -26,6 +26,7 @@ import com.example.check.servicio.utilidades.excepciones.ExcepcionConexion;
 import com.flaviofaria.kenburnsview.KenBurnsView;
 import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.squareup.picasso.Picasso;
@@ -36,6 +37,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -57,32 +59,43 @@ public class ActividadPrincipal extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         connection = new Connection(this);
 
-        SmoothBottomBar smoothBottomBar = findViewById(R.id.bar_nav);
-        remplazar(new FragmentoInicio());
-
         ImageView imageTopView = findViewById(R.id.topImg);
         TextView textTopView = findViewById(R.id.topText);
 
-        smoothBottomBar.setOnItemSelected((Function1<? super Integer, kotlin.Unit>) o -> {
-            switch (o) {
-                case 0:
-                    remplazar(new FragmentoInicio());
-                    imageTopView.setImageResource(R.drawable.ic_location);
-                    textTopView.setText("Nuestras expediciones");
-                    break;
-                case 1:
-                    remplazar(new FragmentoGaleria());
-                    imageTopView.setImageResource(R.drawable.ic_baseline_favorite_24);
-                    textTopView.setText("Comparte con nosotros");
-                    break;
-                case 2:
-                    remplazar(new FragmentoPerfil());
-                    imageTopView.setImageResource(R.drawable.ic_user);
-                    textTopView.setText("Busca tu identidad");
-                    break;
+        LinearLayout index0 = findViewById(R.id.index0);
+        LinearLayout index1 = findViewById(R.id.index1);
+        LinearLayout index2 = findViewById(R.id.index2);
+
+        remplazar(new FragmentoInicio());
+
+        index0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                remplazar(new FragmentoInicio());
+                imageTopView.setImageResource(R.drawable.ic_location);
+                textTopView.setText("Nuestras expediciones");
             }
-            return null;
         });
+
+        index1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                remplazar(new FragmentoGaleria());
+                imageTopView.setImageResource(R.drawable.ic_baseline_favorite_24);
+                textTopView.setText("Comparte con nosotros");
+            }
+        });
+
+        index2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                remplazar(new FragmentoPerfil());
+                imageTopView.setImageResource(R.drawable.ic_user);
+                textTopView.setText("Busca tu identidad");
+            }
+        });
+
     }
 
 
@@ -94,14 +107,13 @@ public class ActividadPrincipal extends AppCompatActivity {
 
     public void onStart() {
         super.onStart();
-
+/*
         servicioFirebase = new ServicioFirebase();
         FirebaseUser currentUser = servicioFirebase.getTokenAutenticacion().getCurrentUser();
-
-        if (currentUser == null) {
+        FirebaseAuth.getInstance().signOut();
             cambiarActividad();
-        }
 
+ */
     }
 
     private void cambiarActividad() {
