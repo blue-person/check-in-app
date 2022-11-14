@@ -26,6 +26,12 @@ jobs:
       - name: Ajustar permisos de ejecucion de Gradle
         run: chmod +x gradlew  
           
+      - name: Limpiar cache
+        run: ./gradlew clean
+        
+      - name: Limpiar cache de compilacion
+        run: ./gradlew cleanBuildCache
+        
       - name: Compilar y analizar el codigo
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
