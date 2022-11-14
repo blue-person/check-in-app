@@ -105,24 +105,22 @@ public class ActividadPrincipal extends AppCompatActivity {
     }
 
     private void cambiarActividad() {
-        Intent Log = new Intent(this, ActividadInicio.class);
-        startActivity(Log);
+        Intent log = new Intent(this, ActividadInicio.class);
+        startActivity(log);
     }
 
     private void cambiarIntento(String accion, String contexto) {
-        Intent Log = new Intent(accion, Uri.parse(contexto));
-        startActivity(Log);
+        Intent log = new Intent(accion, Uri.parse(contexto));
+        startActivity(log);
     }
 
     public void desplegarInformacion(View view) {
         if (!connection.isConnected()) {
             throw new ExcepcionConexion(connection.toString());
         } else {
-            KenBurnsView kbvImage;
-            TextView textTitle, textLocation;
-            kbvImage = view.findViewById(R.id.kbvLocation);
-            textTitle = view.findViewById(R.id.textTitle);
-            textLocation = view.findViewById(R.id.textLocation);
+            KenBurnsView kbvImage = view.findViewById(R.id.kbvLocation);
+            TextView textTitle = view.findViewById(R.id.textTitle);
+            TextView textLocation = view.findViewById(R.id.textLocation);
 
             BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(ActividadPrincipal.this, R.style.bt_sheet_dialog);
 
@@ -224,10 +222,7 @@ public class ActividadPrincipal extends AppCompatActivity {
                     subirImagen(currentUri);
                 }
             });
-            box.findViewById(R.id.boton_de_cancelar).setOnClickListener(view2 -> {
-                dialog.dismiss();
-            });
-
+            box.findViewById(R.id.boton_de_cancelar).setOnClickListener(view2 -> dialog.dismiss());
             dialog.setContentView(box);
             dialog.show();
         }

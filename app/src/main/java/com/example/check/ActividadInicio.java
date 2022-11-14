@@ -1,15 +1,15 @@
 package com.example.check;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.check.controlador.fragmento.Fragmento_Login;
 import com.example.check.controlador.fragmento.RegistroFragmento;
@@ -68,40 +68,37 @@ public class ActividadInicio extends AppCompatActivity {
     }
 
     public void ingresar(View view) {
-
         ExpandableHintText editTextUser = findViewById(R.id.user);
         ExpandableHintText editTextPass = findViewById(R.id.pass);
-        String user = editTextUser.getText().toString();
-        String pass = editTextPass.getText().toString();
+        String user = editTextUser.getText();
+        String pass = editTextPass.getText();
 
         if (!user.equals("") && !pass.equals("")) {
             tokenAutenticacion.signInWithEmailAndPassword(user, pass).addOnCompleteListener(this, task -> {
                 if (task.isSuccessful()) {
                     autenticar();
-                }
-                else {
+                } else {
                     DialogoNotificacion dialogoNotificacion = new DialogoNotificacion(ActividadInicio.this);
                     View box = LayoutInflater.from(getApplicationContext()).inflate(R.layout.box_notification, findViewById(R.id.dialog_notification));
-                    dialogoNotificacion.dispararDialogo(box,"Error de credenciales","Revise su correo y contraseña",R.raw.fail);
+                    dialogoNotificacion.dispararDialogo(box, "Error de credenciales", "Revise su correo y contraseña", R.raw.fail);
                 }
             });
         } else {
             DialogoNotificacion dialogoNotificacion = new DialogoNotificacion(ActividadInicio.this);
             View box = LayoutInflater.from(getApplicationContext()).inflate(R.layout.box_notification, findViewById(R.id.dialog_notification));
-            dialogoNotificacion.dispararDialogo(box,"Error de credenciales","Revise su correo y contraseña",R.raw.fail);
+            dialogoNotificacion.dispararDialogo(box, "Error de credenciales", "Revise su correo y contraseña", R.raw.fail);
         }
     }
 
     private void autenticar() {
         FirebaseUser currentUser = tokenAutenticacion.getCurrentUser();
         if (currentUser != null) {
-            Intent Log = new Intent(this, ActividadPrincipal.class);
-            startActivity(Log);
+            Intent log = new Intent(this, ActividadPrincipal.class);
+            startActivity(log);
         }
     }
 
-    public void registrar(View view){
-
+    public void registrar(View view) {
         ExpandableHintText editTextUser = findViewById(R.id.regNombre);
         ExpandableHintText editTextMail = findViewById(R.id.regCorreo);
         ExpandableHintText editTextPass = findViewById(R.id.regPass);
@@ -112,34 +109,33 @@ public class ActividadInicio extends AppCompatActivity {
         String pass = editTextPass.getText();
         String passcon = editTextPassCon.getText();
 
-        System.out.println(user+"------------");
-        System.out.println(pass+"------------");
+        System.out.println(user + "------------");
+        System.out.println(pass + "------------");
 
-        if(!user.equals("") && !pass.equals("") && new AutenticacionDao().esValido(user,mail,pass,passcon)){
-            tokenAutenticacion.createUserWithEmailAndPassword(mail, pass)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                autenticar();
-                                Usuario user = new Usuario();
-                                user.setNombre(editTextUser.getText());
-                                user.setCorreo(editTextMail.getText());
-                                user.setExpedicion("NA");
-                                user.setImagen("");
-                                servicioFirebase.registrarUsuario(user, task);
-                            }else {
-                                DialogoNotificacion dialogoNotificacion = new DialogoNotificacion(ActividadInicio.this);
-                                View box = LayoutInflater.from(getApplicationContext()).inflate(R.layout.box_notification, findViewById(R.id.dialog_notification));
-                                dialogoNotificacion.dispararDialogo(box,"Error de credenciales","Revise su correo y contraseña",R.raw.fail);
-                            }
-                        }
-                    });
-
-        }else {
+        boolean usuarioValido = new AutenticacionDao().esValido(user, mail, pass, passcon);
+        if (!user.equals("") && !pass.equals("") && Boolean.TRUE.equals(usuarioValido)) {
+            tokenAutenticacion.createUserWithEmailAndPassword(mail, pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
+                        autenticar();
+                        Usuario user = new Usuario();
+                        user.setNombre(editTextUser.getText());
+                        user.setCorreo(editTextMail.getText());
+                        user.setExpedicion("NA");
+                        user.setImagen("");
+                        servicioFirebase.registrarUsuario(user, task);
+                    } else {
+                        DialogoNotificacion dialogoNotificacion = new DialogoNotificacion(ActividadInicio.this);
+                        View box = LayoutInflater.from(getApplicationContext()).inflate(R.layout.box_notification, findViewById(R.id.dialog_notification));
+                        dialogoNotificacion.dispararDialogo(box, "Error de credenciales", "Revise su correo y contraseña", R.raw.fail);
+                    }
+                }
+            });
+        } else {
             DialogoNotificacion dialogoNotificacion = new DialogoNotificacion(ActividadInicio.this);
             View box = LayoutInflater.from(getApplicationContext()).inflate(R.layout.box_notification, findViewById(R.id.dialog_notification));
-            dialogoNotificacion.dispararDialogo(box,"Error de credenciales","Revise su correo y contraseña",R.raw.fail);
+            dialogoNotificacion.dispararDialogo(box, "Error de credenciales", "Revise su correo y contraseña", R.raw.fail);
         }
     }
 }
