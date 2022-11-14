@@ -3,7 +3,7 @@ plugins {
     id "com.google.gms.google-services"
     id "kotlin-android"
     id "jacoco"
-    id "org.sonarqube"
+    id "org.sonarqube" version "3.5.0.2730"
 }
 
 task jacocoTestReport(type: JacocoReport, dependsOn: ["testDebugUnitTest", "createDebugCoverageReport"]) {
