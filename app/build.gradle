@@ -7,7 +7,6 @@ plugins {
 }
 
 task jacocoTestReport(type: JacocoReport, dependsOn: ["testDebugUnitTest", "createDebugAndroidTestCoverageReport", "connectedAndroidTest"]) {
-
     reports {
         xml.enabled true
         html.enabled true
@@ -33,6 +32,7 @@ sonar {
 }
 
 android {
+    namespace "com.example.check"
     compileSdk 33
     buildToolsVersion "33.0.0"
 
@@ -46,7 +46,6 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-
     testOptions {
         unitTests.all {
             jacoco {
@@ -55,6 +54,10 @@ android {
             }
         }
         unitTests.returnDefaultValues = true
+    }
+    
+    lintOptions {
+        abortOnError false
     }
 
     buildTypes {
@@ -71,15 +74,15 @@ android {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
     }
+    
     buildFeatures {
         viewBinding true
     }
-    namespace "com.example.check"
+    
     dependenciesInfo {
         includeInBundle false
         includeInApk false
     }
-
 }
 
 dependencies {
