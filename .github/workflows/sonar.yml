@@ -11,7 +11,8 @@ jobs:
     name: Compilar y analizar proyecto
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
           
@@ -26,14 +27,14 @@ jobs:
         run: chmod +x gradlew  
         
       - name: Almacenar en cache los paquetes de SonarCloud
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
           path: ~/.sonar/cache
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
           
       - name: Almacenar en cache los paquetes de Gradle
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
           path: ~/.gradle/caches
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
