@@ -23,7 +23,7 @@ task jacocoTestReport(type: JacocoReport, dependsOn: ["testDebugUnitTest", "crea
                                                                 "outputs/code-coverage/connected/*coverage.ec"]))
 }
 
-sonarqube {
+sonar {
     properties {
         property "sonar.projectKey", "blue-person_check-in-app"
         property "sonar.organization", "blue-person"
