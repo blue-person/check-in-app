@@ -44,14 +44,10 @@ public class ActividadInicio extends AppCompatActivity {
         remplazar(new Fragmento_Login());
 
         smoothBottomBar.setOnItemSelected((Function1<? super Integer, Unit>) o -> {
-            switch (o) {
-                case 0:
-                    remplazar(new Fragmento_Login());
-                    break;
-                case 1:
-                    remplazar(new RegistroFragmento());
-                    break;
-
+            if (o == 0) {
+                remplazar(new Fragmento_Login());
+            } else if (o == 1) {
+                remplazar(new RegistroFragmento());
             }
             return null;
         });
