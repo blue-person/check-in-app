@@ -23,6 +23,6 @@ public class ExampleUnitTest {
 
     @Test
     void Given_not_exists_When_call_register_book_Then_register_book() {
-        assertEquals(false,);
+        assertEquals(false);
     }
 }
