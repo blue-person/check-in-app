@@ -1,11 +1,8 @@
 package com.example.check.servicio.firebase;
-import android.app.Dialog;
+
 import android.content.Context;
 import android.net.Uri;
-import android.view.LayoutInflater;
 import android.view.View;
-
-import androidx.annotation.NonNull;
 
 import com.example.check.R;
 import com.example.check.repositorio.entidad.Imagedb;
@@ -14,8 +11,6 @@ import com.example.check.servicio.utilidades.Constantes;
 import com.example.check.servicio.utilidades.dialogo.DialogoCarga;
 import com.example.check.servicio.utilidades.dialogo.DialogoNotificacion;
 import com.example.check.servicio.utilidades.excepciones.ExcepcionTareaFB;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.Timestamp;
 import com.google.firebase.auth.AuthResult;
@@ -29,6 +24,7 @@ import com.google.firebase.storage.StorageReference;
 
 import java.util.Formatter;
 import java.util.Objects;
+import java.util.UUID;
 
 public class ServicioFirebase {
     private FirebaseAuth tokenAutenticacion;
@@ -66,9 +62,14 @@ public class ServicioFirebase {
     }
 
     public void subirFoto(Uri filePath, Context context, View box, View box2) {
-        StorageReference ref = getReference().child("images/" + getTokenAutenticacion().getUid() + "/" + Math.random());
+        String tokenUsuario = getTokenAutenticacion().getUid();
+        String idFoto = UUID.randomUUID().toString();
+        String urlReferencia = String.format("images/%s/%s", tokenUsuario, idFoto);
+        StorageReference ref = getReference().child(urlReferencia);
+
         DialogoCarga dialogoCarga = new DialogoCarga(context);
         dialogoCarga.dispararDialogo(box);
+
         ref.putFile(filePath).addOnSuccessListener(taskSnapshot -> {
                     Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
                     while (!uriTask.isSuccessful()) ;
@@ -84,12 +85,12 @@ public class ServicioFirebase {
                         dialogoCarga.finalizar();
 
                         DialogoNotificacion dialogoNotificacion = new DialogoNotificacion(context);
-                        dialogoNotificacion.dispararDialogo(box2,"Natificacion","La foto se actualizo correctamente",R.raw.ok);
+                        dialogoNotificacion.dispararDialogo(box2, "Notificacion", "La foto se actualizo correctamente", R.raw.ok);
                     });
                 })
 
                 .addOnFailureListener(e -> {
-                    throw new ExcepcionTareaFB("No fue posible avrualizar la foto");
+                    throw new ExcepcionTareaFB("No fue posible actualizar la foto");
                 }).addOnProgressListener(taskSnapshot -> {
                     double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
                     Formatter formatter = new Formatter();
