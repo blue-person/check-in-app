@@ -9,10 +9,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Toast;
 
-import com.example.check.controlador.fragmento.Fragmento_Login;
-import com.example.check.controlador.fragmento.RegistroFragmento;
+import com.example.check.controlador.fragmento.FragmentoInicioSesion;
+import com.example.check.controlador.fragmento.FragmentoRegistro;
 import com.example.check.repositorio.dao.AutenticacionDao;
 import com.example.check.repositorio.entidad.Usuario;
 import com.example.check.servicio.firebase.ServicioFirebase;
@@ -41,15 +40,15 @@ public class ActividadInicio extends AppCompatActivity {
         servicioFirebase = new ServicioFirebase();
 
         @SuppressLint({"MissingInflatedId", "LocalSuppress"}) SmoothBottomBar smoothBottomBar = findViewById(R.id.log_sbar);
-        remplazar(new Fragmento_Login());
+        remplazar(new FragmentoInicioSesion());
 
         smoothBottomBar.setOnItemSelected((Function1<? super Integer, Unit>) o -> {
             switch (o) {
                 case 0:
-                    remplazar(new Fragmento_Login());
+                    remplazar(new FragmentoInicioSesion());
                     break;
                 case 1:
-                    remplazar(new RegistroFragmento());
+                    remplazar(new FragmentoRegistro());
                     break;
 
             }

@@ -13,7 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.check.repositorio.entidad.Connection;
+import com.example.check.repositorio.entidad.Conexion;
 import com.example.check.repositorio.entidad.DestinosViaje;
 import com.example.check.controlador.adaptador.TravelLocationAdapter;
 import com.example.check.R;
@@ -47,7 +47,7 @@ public class FragmentoInicio extends Fragment {
                              Bundle savedInstanceState) {
 
         View view =  inflater.inflate(R.layout.fragment_home, container, false);
-        Connection conexion = new Connection(getActivity());
+        Conexion conexion = new Conexion(getActivity());
 
         ViewPager2 locationViewPager = view.findViewById(R.id.locationViewPager);
 

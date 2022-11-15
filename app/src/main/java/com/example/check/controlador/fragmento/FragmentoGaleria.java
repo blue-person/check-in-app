@@ -14,7 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.check.repositorio.entidad.Connection;
+import com.example.check.repositorio.entidad.Conexion;
 import com.example.check.repositorio.entidad.Imagedb;
 import com.example.check.repositorio.entidad.DestinosViaje;
 import com.example.check.controlador.adaptador.AlbumAdapter;
@@ -73,7 +73,7 @@ public class FragmentoGaleria extends Fragment {
 
 
 
-        if (!new Connection(getActivity()).isConnected()) {
+        if (!new Conexion(getActivity()).isConnected()) {
             throw new ExcepcionConexion("");
 
         } else {

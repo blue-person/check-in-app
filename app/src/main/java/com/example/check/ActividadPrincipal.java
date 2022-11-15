@@ -16,7 +16,7 @@ import com.example.check.repositorio.entidad.Imagedb;
 import com.example.check.repositorio.entidad.Usuario;
 import com.example.check.repositorio.dao.ImagenDao;
 import com.example.check.controlador.adaptador.ImageAdapter;
-import com.example.check.repositorio.entidad.Connection;
+import com.example.check.repositorio.entidad.Conexion;
 import com.example.check.controlador.fragmento.FragmentoInicio;
 import com.example.check.controlador.fragmento.FragmentoGaleria;
 import com.example.check.controlador.fragmento.FragmentoPerfil;
@@ -48,14 +48,14 @@ import me.ibrahimsn.lib.SmoothBottomBar;
 public class ActividadPrincipal extends AppCompatActivity {
     static final int REQUEST_IMAGE_CAPTURE = 1;
     private ServicioFirebase servicioFirebase;
-    private Connection connection;
+    private Conexion conexion;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        connection = new Connection(this);
+        conexion = new Conexion(this);
 
         SmoothBottomBar smoothBottomBar = findViewById(R.id.bar_nav);
         remplazar(new FragmentoInicio());
@@ -115,8 +115,8 @@ public class ActividadPrincipal extends AppCompatActivity {
     }
 
     public void desplegarInformacion(View view) {
-        if (!connection.isConnected()) {
-            throw new ExcepcionConexion(connection.toString());
+        if (!conexion.isConnected()) {
+            throw new ExcepcionConexion(conexion.toString());
         } else {
             KenBurnsView kbvImage;
             TextView textTitle, textLocation;
@@ -233,7 +233,7 @@ public class ActividadPrincipal extends AppCompatActivity {
         }
     }
     private void subirImagen(Uri filePath) {
-        if (!connection.isConnected()) {
+        if (!conexion.isConnected()) {
 
             return;
         }

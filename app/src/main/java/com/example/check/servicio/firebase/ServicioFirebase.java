@@ -84,7 +84,7 @@ public class ServicioFirebase {
                         dialogoCarga.finalizar();
 
                         DialogoNotificacion dialogoNotificacion = new DialogoNotificacion(context);
-                        dialogoNotificacion.dispararDialogo(box2,"Natificacion","La foto se actualizo correctamente",R.raw.ok);
+                        dialogoNotificacion.dispararDialogo(box2,"Notificación","La foto se actualizó correctamente",R.raw.ok);
                     });
                 })
 
