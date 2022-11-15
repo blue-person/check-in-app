@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/main"
     android:layout_height="match_parent"
+    android:background="@color/main"
     tools:context=".ActividadInicio">
 
 
@@ -12,9 +12,9 @@
         android:id="@+id/log_sbar"
         android:layout_width="match_parent"
         android:layout_height="70dp"
+        app:backgroundColor="@color/sec"
         app:iconSize="20dp"
         app:iconTint="@color/red"
-        app:backgroundColor="@color/sec"
         app:iconTintActive="@color/blue"
         app:indicatorColor="@color/main"
         app:indicatorRadius="10dp"
@@ -29,18 +29,13 @@
         android:id="@+id/frames"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@drawable/bg_bt_main"
         android:layout_marginTop="@dimen/_60ssp"
+        android:background="@drawable/bg_bt_main"
         app:layout_constraintBottom_toTopOf="@id/log_sbar"
         app:layout_constraintTop_toTopOf="parent">
 
 
     </FrameLayout>
-
-
-
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

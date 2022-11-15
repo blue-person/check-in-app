@@ -8,18 +8,17 @@
     tools:context=".ActividadPrincipal">
 
     <LinearLayout
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="20dp"
-        android:layout_marginHorizontal="30dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/topImg"
-            android:layout_gravity="center_vertical"
             android:layout_width="32dp"
-
             android:layout_height="32dp"
+            android:layout_gravity="center_vertical"
             android:layout_marginStart="10dp"
             android:contentDescription="@string/app_name"
             android:src="@drawable/ic_location"
@@ -28,18 +27,17 @@
         <TextView
 
             android:id="@+id/topText"
-            android:gravity="center"
-            android:layout_gravity="center_vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
-            android:textSize="18dp"
-            android:text="Nuestras expediciones"
-            android:textColor="@color/text" />
+            android:gravity="center"
+            android:text="@string/nuestras_expediciones"
+            android:textColor="@color/text"
+            android:textSize="18dp" />
 
     </LinearLayout>
-
 
 
     <FrameLayout
@@ -62,20 +60,20 @@
         android:id="@+id/bar_nav"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:orientation="horizontal"
-        android:gravity="center"
         android:background="@color/sec"
+        android:gravity="center"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <LinearLayout
-            android:layout_weight="3"
             android:id="@+id/index0"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="3"
             android:background="?android:attr/selectableItemBackground"
             android:clickable="true"
             android:gravity="center"
-            android:layout_gravity="center_vertical"
             android:orientation="horizontal"
             android:padding="0dp">
 
@@ -89,21 +87,20 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Inicio"
-
+                android:text="@string/inicio"
                 android:textColor="@color/text" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_weight="3"
             android:id="@+id/index1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="3"
             android:background="?android:attr/selectableItemBackground"
             android:clickable="true"
             android:gravity="center"
-            android:layout_gravity="center_vertical"
             android:orientation="horizontal"
             android:padding="0dp">
 
@@ -117,19 +114,20 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Galeria"
+                android:text="@string/galeria"
                 android:textColor="@color/text" />
 
         </LinearLayout>
+
         <LinearLayout
-            android:layout_weight="3"
             android:id="@+id/index2"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="3"
             android:background="?android:attr/selectableItemBackground"
             android:clickable="true"
             android:gravity="center"
-            android:layout_gravity="center_vertical"
             android:orientation="horizontal"
             android:padding="0dp">
 
@@ -143,16 +141,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Perfil"
+                android:text="@string/perfil"
                 android:textColor="@color/text" />
 
         </LinearLayout>
-
-
-
-
     </LinearLayout>
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
