@@ -19,14 +19,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ItinerarioDao {
-    private DatabaseReference mDatabase;
-    private FirebaseAuth tokenAutenticacion;
-    private FirebaseFirestore db;
+    private DatabaseReference mDatabase; //NOSONAR
 
     public void updateView(ViewPager2 viewPager, Context context, String image) {
         List<Itinerarios> itinerarios = new ArrayList<>();
-        tokenAutenticacion = FirebaseAuth.getInstance();
-        db = FirebaseFirestore.getInstance();
+        FirebaseAuth tokenAutenticacion = FirebaseAuth.getInstance();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
         db.collection("users").document(tokenAutenticacion.getCurrentUser().getUid()).get().addOnSuccessListener(documentSnapshot -> {

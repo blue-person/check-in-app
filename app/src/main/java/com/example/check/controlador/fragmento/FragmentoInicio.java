@@ -68,8 +68,8 @@ public class FragmentoInicio extends Fragment {
             List<DestinosViaje> destinosViajes = new ArrayList<>();
             DestinosViaje destinosViaje = new DestinosViaje();
             destinosViaje.url = "";
-            destinosViaje.ubicación = "No logramos conectar con el servidor";
-            destinosViaje.Nombre = "Offline";
+            destinosViaje.ubicacion = "No logramos conectar con el servidor";
+            destinosViaje.nombre = "Offline";
             destinosViaje.fecha = "";
             Uri uri = Uri.parse("android.resource://com.example.check/" + R.drawable.signal);
             destinosViaje.imagen = uri.toString();

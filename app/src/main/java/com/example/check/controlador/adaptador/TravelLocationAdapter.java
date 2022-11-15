@@ -60,15 +60,15 @@ public class TravelLocationAdapter extends RecyclerView.Adapter<TravelLocationAd
         }
         void setLocationData(DestinosViaje destinosViaje){
 
-            kbvLocation.setTag(destinosViaje.Nombre);
+            kbvLocation.setTag(destinosViaje.nombre);
 
-            itemView.setTag(destinosViaje.Nombre);
+            itemView.setTag(destinosViaje.nombre);
 
 
             Picasso.get().load(destinosViaje.imagen).into(kbvLocation);
-            textTitle.setText(destinosViaje.Nombre);
+            textTitle.setText(destinosViaje.nombre);
             textLocation.setTag(destinosViaje.imagen);
-            textLocation.setText(destinosViaje.ubicación);
+            textLocation.setText(destinosViaje.ubicacion);
             textStartRating.setText(String.valueOf(destinosViaje.fecha));
 
             textTitle.setTag(destinosViaje.url);

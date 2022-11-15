@@ -20,7 +20,6 @@ import com.example.check.repositorio.dao.ImagenDao;
 import com.example.check.repositorio.entidad.Connection;
 import com.example.check.repositorio.entidad.DestinosViaje;
 import com.example.check.repositorio.entidad.Imagedb;
-import com.example.check.servicio.firebase.ServicioFirebase;
 import com.example.check.servicio.utilidades.excepciones.ExcepcionConexion;
 import com.example.check.servicio.utilidades.excepciones.ExcepcionTareaFB;
 import com.google.firebase.database.ChildEventListener;
@@ -29,7 +28,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -68,8 +66,8 @@ public class FragmentoGaleria extends Fragment {
                     throw new ExcepcionTareaFB(Objects.requireNonNull(task.getException()).getMessage());
                 } else {
                     DestinosViaje destinosViaje1 = new DestinosViaje();
-                    destinosViaje1.Nombre = "Todas las expediciones";
-                    destinosViaje1.imagen = "https://checknewplaces.com/wp-content/uploads/2021/09/Puerta-de-Orion-@ecoturismoguaviare-2.jpg";
+                    destinosViaje1.nombre = getString(R.string.titulo_todas_expediciones);
+                    destinosViaje1.imagen = getString(R.string.url_imagen_destinos);
                     destinosViajes.add(destinosViaje1);
 
                     for (DataSnapshot ds : task.getResult().getChildren()) {
