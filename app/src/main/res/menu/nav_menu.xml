@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/home"
-        android:title="Inicio"
+        android:title="@string/inicio"
         android:icon="@drawable/ic_home"
         app:cnb_backgroundColor="@color/check1.2"
         app:cnb_iconColor="@color/check2"
@@ -14,7 +14,7 @@
         />
     <item
         android:id="@+id/share"
-        android:title="Fotos"
+        android:title="@string/fotos"
         android:icon="@drawable/ic_photo"
         app:cnb_backgroundColor="@color/check1.2"
         app:cnb_iconColor="@color/check2"
@@ -23,7 +23,7 @@
         />
     <item
         android:id="@+id/usuario"
-        android:title="Perfil"
+        android:title="@string/perfil"
         android:icon="@drawable/ic_user"
         app:cnb_backgroundColor="@color/check1.2"
         app:cnb_iconColor="@color/check2"

@@ -1,57 +1,51 @@
 package com.example.check;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
+import static io.grpc.okhttp.internal.Platform.logger;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-
-import com.airbnb.lottie.LottieAnimationView;
-import com.example.check.repositorio.entidad.Imagedb;
-import com.example.check.repositorio.entidad.Usuario;
-import com.example.check.repositorio.dao.ImagenDao;
-import com.example.check.controlador.adaptador.ImageAdapter;
-import com.example.check.repositorio.entidad.Connection;
-import com.example.check.controlador.fragmento.FragmentoInicio;
-import com.example.check.controlador.fragmento.FragmentoGaleria;
-import com.example.check.controlador.fragmento.FragmentoPerfil;
-import com.example.check.servicio.firebase.ServicioFirebase;
-import com.example.check.servicio.utilidades.Constantes;
-import com.example.check.servicio.utilidades.excepciones.ExcepcionConexion;
-import com.flaviofaria.kenburnsview.KenBurnsView;
-import com.github.dhaval2404.imagepicker.ImagePicker;
-import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.squareup.picasso.Picasso;
-
-import android.content.Intent;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.airbnb.lottie.LottieAnimationView;
+import com.example.check.controlador.adaptador.ImageAdapter;
+import com.example.check.controlador.fragmento.FragmentoGaleria;
+import com.example.check.controlador.fragmento.FragmentoInicio;
+import com.example.check.controlador.fragmento.FragmentoPerfil;
+import com.example.check.repositorio.dao.ImagenDao;
+import com.example.check.repositorio.entidad.Connection;
+import com.example.check.repositorio.entidad.Imagedb;
+import com.example.check.repositorio.entidad.Usuario;
+import com.example.check.servicio.firebase.ServicioFirebase;
+import com.example.check.servicio.utilidades.Constantes;
+import com.example.check.servicio.utilidades.excepciones.ExcepcionConexion;
+import com.flaviofaria.kenburnsview.KenBurnsView;
+import com.github.dhaval2404.imagepicker.ImagePicker;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
-import kotlin.jvm.functions.Function1;
-import me.ibrahimsn.lib.SmoothBottomBar;
 
 public class ActividadPrincipal extends AppCompatActivity {
     static final int REQUEST_IMAGE_CAPTURE = 1;
     private ServicioFirebase servicioFirebase;
     private Connection connection;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,36 +62,25 @@ public class ActividadPrincipal extends AppCompatActivity {
 
         remplazar(new FragmentoInicio());
 
-        index0.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                remplazar(new FragmentoInicio());
-                imageTopView.setImageResource(R.drawable.ic_location);
-                textTopView.setText("Nuestras expediciones");
-            }
+        index0.setOnClickListener(view -> {
+            remplazar(new FragmentoInicio());
+            imageTopView.setImageResource(R.drawable.ic_location);
+            textTopView.setText(R.string.mensaje_inicio);
         });
 
-        index1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                remplazar(new FragmentoGaleria());
-                imageTopView.setImageResource(R.drawable.ic_baseline_favorite_24);
-                textTopView.setText("Comparte con nosotros");
-            }
+        index1.setOnClickListener(view -> {
+            remplazar(new FragmentoGaleria());
+            imageTopView.setImageResource(R.drawable.ic_baseline_favorite_24);
+            textTopView.setText(R.string.mensaje_galeria);
         });
 
-        index2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                remplazar(new FragmentoPerfil());
-                imageTopView.setImageResource(R.drawable.ic_user);
-                textTopView.setText("Busca tu identidad");
-            }
+        index2.setOnClickListener(view -> {
+            remplazar(new FragmentoPerfil());
+            imageTopView.setImageResource(R.drawable.ic_user);
+            textTopView.setText(R.string.mensaje_perfil);
         });
 
     }
-
 
     public void remplazar(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -105,20 +88,9 @@ public class ActividadPrincipal extends AppCompatActivity {
         transaction.commit();
     }
 
+    @Override
     public void onStart() {
         super.onStart();
-/*
-        servicioFirebase = new ServicioFirebase();
-        FirebaseUser currentUser = servicioFirebase.getTokenAutenticacion().getCurrentUser();
-        FirebaseAuth.getInstance().signOut();
-            cambiarActividad();
-
- */
-    }
-
-    private void cambiarActividad() {
-        Intent log = new Intent(this, ActividadInicio.class);
-        startActivity(log);
     }
 
     private void cambiarIntento(String accion, String contexto) {
@@ -154,7 +126,7 @@ public class ActividadPrincipal extends AppCompatActivity {
                 try {
                     ActividadPrincipal.this.startActivity(whatsappIntent);
                 } catch (android.content.ActivityNotFoundException ex) {
-                    System.out.println("Whatsapp have not been installed.");
+                    logger.info("El usuario no tiene instalado Whatsapp");
                 }
             });
 
@@ -213,7 +185,6 @@ public class ActividadPrincipal extends AppCompatActivity {
         }
 
         if (requestCode == 1) {
-            //error
             assert data != null;
             Uri currentUri = data.getData();
 
@@ -221,33 +192,30 @@ public class ActividadPrincipal extends AppCompatActivity {
             Dialog dialog = new Dialog(this);
 
             @SuppressLint({"MissingInflatedId", "LocalSuppress"}) TextView textView = box.findViewById(R.id.textoPrincipal);
-            textView.setText("Confirmacion");
+            textView.setText(R.string.alerta_titulo_confirmacion_foto);
             @SuppressLint({"MissingInflatedId", "LocalSuppress"}) TextView textinfoView = box.findViewById(R.id.info);
-            textinfoView.setText("Esta seguro que quiere subir esta imagen");
+            textinfoView.setText(R.string.alerta_info_confirmacion_foto);
             LottieAnimationView imageView = box.findViewById(R.id.img);
             imageView.setAnimation(R.raw.request);
 
-            box.findViewById(R.id.boton_de_confirmacion).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    dialog.dismiss();
-                    subirImagen(currentUri);
-                }
+            box.findViewById(R.id.boton_de_confirmacion).setOnClickListener(view -> {
+                dialog.dismiss();
+                subirImagen(currentUri);
             });
             box.findViewById(R.id.boton_de_cancelar).setOnClickListener(view2 -> dialog.dismiss());
             dialog.setContentView(box);
             dialog.show();
         }
     }
+
     private void subirImagen(Uri filePath) {
         if (!connection.isConnected()) {
-
             return;
         }
         if (filePath != null) {
             @SuppressLint({"MissingInflatedId", "LocalSuppress"}) View box2 = LayoutInflater.from(this).inflate(R.layout.box_notification, findViewById(R.id.dialog_notification));
             @SuppressLint({"MissingInflatedId", "LocalSuppress"}) View box = LayoutInflater.from(this).inflate(R.layout.box_carga, findViewById(R.id.load_box));
-            servicioFirebase.subirFoto(filePath, this,box,box2);
+            servicioFirebase.subirFoto(filePath, this, box, box2);
         }
     }
 
@@ -258,7 +226,7 @@ public class ActividadPrincipal extends AppCompatActivity {
         imagedbs.clear();
 
         String tag = view.getTag().toString();
-        if (tag.equals("Todas las expediciones")) {
+        if (tag.equals(getString(R.string.titulo_todas_expediciones))) {
             imagedbs.addAll(ImagenDao.imagedbs);
         } else {
             for (Imagedb item : ImagenDao.imagedbs) {
@@ -270,5 +238,4 @@ public class ActividadPrincipal extends AppCompatActivity {
         recyclerView.setAdapter(new ImageAdapter(imagedbs, this));
         Objects.requireNonNull(recyclerView.getAdapter()).notifyDataSetChanged();
     }
-    
 }

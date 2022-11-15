@@ -6,8 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ImagenDao {
-    public static List<Imagedb> imagedbs = new ArrayList<>();
-    public static void addImage(Imagedb image){
-        imagedbs.add(0,image);
+    public static List<Imagedb> imagedbs = new ArrayList<>(); //NOSONAR
+
+    public static void addImage(Imagedb image) {
+        imagedbs.add(0, image);
     }
 }

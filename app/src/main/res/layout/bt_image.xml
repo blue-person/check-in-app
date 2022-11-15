@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="15dp"
-        android:text="Crea una nueva publicación"
+        android:text="@string/crear_publicacion"
         android:textColor="@color/text"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -30,8 +30,6 @@
         android:padding="5dp">
 
         <LinearLayout
-
-
             android:id="@+id/cameraOp"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -51,15 +49,16 @@
                 android:layout_margin="10dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_camera"
-                android:tint="#d7d7d7"
-                app:riv_corner_radius="10dp" />
+                app:riv_corner_radius="10dp"
+                app:tint="#d7d7d7" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Tomar una foto"
-                android:textColor="@color/text"></TextView>
+                android:text="@string/tomar_foto"
+                android:textColor="@color/text">
+            </TextView>
 
         </LinearLayout>
 
@@ -85,18 +84,16 @@
                 android:layout_margin="10dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_op2"
-                android:tint="#d7d7d7" />
+                app:tint="#d7d7d7" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Subir desde la galeria"
-                android:textColor="@color/text"></TextView>
-
+                android:text="@string/subir_desde_galeria"
+                android:textColor="@color/text">
+            </TextView>
         </LinearLayout>
-
-
     </LinearLayout>
 
     <View
@@ -105,6 +102,4 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:background="#D3D3D3" />
-
-
 </LinearLayout>

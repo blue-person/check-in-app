@@ -35,20 +35,16 @@
                     android:layout_height="wrap_content"
                     android:clipToPadding="false"
                     android:orientation="horizontal"
-
                     />
-
-
             </LinearLayout>
 
 
             <TextView
-
                 android:id="@+id/offtext2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:text="Ultimas publicaciones"
+                android:text="@string/ultimas_publicaciones"
                 android:textColor="@color/white"
                 android:textSize="18dp"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -57,23 +53,19 @@
                 android:id="@+id/view_photo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:clipToPadding="false"></androidx.recyclerview.widget.RecyclerView>
-
+                android:clipToPadding="false">
+            </androidx.recyclerview.widget.RecyclerView>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-
-
             </LinearLayout>
 
         </LinearLayout>
 
 
         <!-- Subir foto  -->
-
-
         <LinearLayout
             android:id="@+id/buttonUpload"
             android:layout_width="wrap_content"
@@ -91,23 +83,24 @@
             tools:layout_editor_absoluteY="15dp">
 
             <ImageView
-
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_add"
-                android:tint="@color/blue"
-                app:riv_corner_radius="10dp"></ImageView>
+                app:riv_corner_radius="10dp"
+                app:tint="@color/blue">
+            </ImageView>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginEnd="5dp"
-                android:text="Subir foto"
+                android:text="@string/subir_foto"
                 android:textColor="@color/blue"
-                android:textSize="16sp"></TextView>
+                android:textSize="16sp">
+            </TextView>
 
         </LinearLayout>
 

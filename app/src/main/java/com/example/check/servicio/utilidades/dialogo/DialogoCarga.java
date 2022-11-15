@@ -6,38 +6,37 @@ import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
 
-import com.airbnb.lottie.LottieAnimationView;
 import com.example.check.R;
 
 import java.util.Formatter;
-
 
 public class DialogoCarga {
     Context context;
     TextView textinfoView;
     Dialog dialog;
 
-
     public DialogoCarga(Context context) {
         this.context = context;
     }
-    public void dispararDialogo(View box){
+
+    public void dispararDialogo(View box) {
         dialog = new Dialog(context);
         dialog.setCancelable(false);
         dialog.setCanceledOnTouchOutside(false);
         @SuppressLint({"MissingInflatedId", "LocalSuppress"}) TextView textView = box.findViewById(R.id.textoPrincipal);
-        textView.setText("Subiendo foto");
+        textView.setText(R.string.alerta_subir_foto);
         textinfoView = box.findViewById(R.id.info);
-        textinfoView.setText("Actualizando... ");
-        // = box.findViewById(R.id.img);
-        //imageView.setImageResource(R.drawable.ic_baseline_favorite_24);
+        textinfoView.setText(R.string.alerta_actualizar_info);
+
         dialog.setContentView(box);
         dialog.show();
     }
-    public void porsentaje(Formatter progress){
-        textinfoView.setText("("+progress+"%/100%) Actualizando... ");
+
+    public void porsentaje(Formatter progress) {
+        textinfoView.setText(String.format("(%s%%) Actualizando... ", progress));
     }
-    public void finalizar(){
+
+    public void finalizar() {
         dialog.dismiss();
     }
 }

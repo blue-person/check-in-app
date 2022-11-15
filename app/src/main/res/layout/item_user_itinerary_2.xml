@@ -41,7 +41,7 @@
 
                 android:fontFamily="@font/roboto_bold"
                 android:paddingLeft="9dp"
-                android:text="Día 1"
+                android:text="@string/d_a_1"
                 android:textColor="@color/blue"
                 android:textSize="30sp" />
 
@@ -52,7 +52,7 @@
                 android:layout_marginBottom="8dp"
                 android:textStyle="bold"
                 android:paddingLeft="9dp"
-                android:text="Viernes 17 de Junio"
+                android:text="@string/viernes_17_de_junio"
                 android:textColor="@color/text"
                 android:textSize="20sp" />
 
@@ -77,7 +77,7 @@
                 android:layout_weight="1.0"
                 android:paddingLeft="11dp"
                 android:paddingRight="11dp"
-                android:text="✓️   Eventos"
+                android:text="@string/eventos"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
         </ScrollView>

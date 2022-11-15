@@ -71,7 +71,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_gravity="center"
 
-                    android:text="Usuiario"
+                    android:text="@string/usuario"
 
                     android:textColor="@color/white"
                     android:textSize="22dp" />
@@ -83,7 +83,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_gravity="center"
 
-                    android:text="Expedicion"
+                    android:text="@string/expedicion"
                     android:layout_marginBottom="10dp"
 
                     android:textColor="@color/white"
@@ -135,7 +135,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cerrar Sesión"
+            android:text="@string/cerrar_sesi_n"
             android:textSize="20sp"
             />
 

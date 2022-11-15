@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/dialog_box_3"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -21,7 +22,7 @@
                 android:gravity="center"
 
                 android:padding="15dp"
-                android:text="Algo salio mal..."
+                android:text="@string/algo_salio_mal"
                 android:textColor="#222222"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -44,17 +45,17 @@
                     android:layout_gravity="center"
                     android:scaleType="centerCrop"
                     android:src="@drawable/ic_baseline_signal_wifi_off_24"
-                    android:tint="@color/main">
-
+                    app:tint="@color/main">
                 </ImageView>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="No tiene conexión a internet"
+                    android:text="@string/no_tiene_conexi_n_a_internet"
                     android:textColor="@color/black"
-                    android:textSize="16sp"></TextView>
+                    android:textSize="16sp">
+                </TextView>
 
 
                 <View
@@ -76,7 +77,7 @@
                         android:layout_marginEnd="5dp"
                         android:layout_weight="3"
                         android:background="@drawable/bg_button"
-                        android:text="Confirmar" />
+                        android:text="@string/titulo_confirmar" />
 
 
                 </LinearLayout>

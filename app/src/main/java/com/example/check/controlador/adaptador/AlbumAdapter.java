@@ -57,8 +57,8 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.TravelLocati
         void setLocationData(DestinosViaje album) {
             kbvLocation.setTag(album.imagen);
             Picasso.get().load(album.imagen).into(kbvLocation);
-            textTitle.setText(album.Nombre);
-            itemView.setTag(album.Nombre);
+            textTitle.setText(album.nombre);
+            itemView.setTag(album.nombre);
         }
     }
 }
