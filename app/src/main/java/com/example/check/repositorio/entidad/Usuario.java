@@ -1,7 +1,10 @@
 package com.example.check.repositorio.entidad;
 
 public class Usuario {
-    private String nombre, imagen, correo, expedicion;
+    private String nombre;
+    private String imagen;
+    private String correo;
+    private String expedicion;
 
     public Usuario(String nombre, String imagen, String correo, String expedicion) {
         this.nombre = nombre;
@@ -10,7 +13,8 @@ public class Usuario {
         this.expedicion = expedicion;
     }
 
-    public Usuario() {}
+    public Usuario() {
+    }
 
     public String getNombre() {
         return nombre;
