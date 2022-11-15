@@ -40,15 +40,17 @@ public class ItinerarioDao {
                             if (ds.child("Nombre").getValue().toString().equals(expedition)) {
                                 for (int i = 1; i < 8; i++) {
                                     if (ds.child("Día " + i).exists()) {
-                                        Itinerarios itinerario = new Itinerarios();
-                                        StringBuilder eventos = new StringBuilder();
+                                        Itinerarios itinerario = new Itinerarios(); //NOSONAR
+                                        StringBuilder eventos = new StringBuilder(); //NOSONAR
                                         itinerario.setDia("Día " + i);
                                         itinerario.setFecha(ds.child("Día " + i).child(String.valueOf(0)).getValue().toString());
+
                                         for (DataSnapshot ds2 : ds.child("Día " + i).getChildren()) {
                                             if (!ds2.getKey().equals("0")) {
                                                 eventos.append("✓ ").append(ds2.getValue().toString()).append("\n\n");
                                             }
                                         }
+
                                         itinerario.setEventos(eventos.toString());
                                         itinerarios.add(itinerario);
                                     }
