@@ -35,4 +35,6 @@
     <string name="mensaje_perfil">Busca tu identidad</string>
     <string name="alerta_titulo_confirmacion_foto">Confirmacion</string>
     <string name="alerta_info_confirmacion_foto">Esta seguro que quiere subir esta imagen</string>
+    <string name="error_titulo_credenciales">Error de credenciales</string>
+    <string name="error_info_credenciales">Revise su correo y contraseña</string>
 </resources>
