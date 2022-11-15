@@ -7,20 +7,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.check.controlador.fragmento.Fragmento_Login;
+import com.example.check.controlador.fragmento.FragmentoLogin;
 import com.example.check.controlador.fragmento.RegistroFragmento;
 import com.example.check.repositorio.dao.AutenticacionDao;
 import com.example.check.repositorio.entidad.Usuario;
 import com.example.check.servicio.firebase.ServicioFirebase;
 import com.example.check.servicio.utilidades.dialogo.DialogoNotificacion;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.tomlonghurst.expandablehinttext.ExpandableHintText;
@@ -42,11 +38,11 @@ public class ActividadInicio extends AppCompatActivity {
         servicioFirebase = new ServicioFirebase();
 
         @SuppressLint({"MissingInflatedId", "LocalSuppress"}) SmoothBottomBar smoothBottomBar = findViewById(R.id.log_sbar);
-        remplazar(new Fragmento_Login());
+        remplazar(new FragmentoLogin());
 
         smoothBottomBar.setOnItemSelected((Function1<? super Integer, Unit>) o -> {
             if (o == 0) {
-                remplazar(new Fragmento_Login());
+                remplazar(new FragmentoLogin());
             } else if (o == 1) {
                 remplazar(new RegistroFragmento());
             }
