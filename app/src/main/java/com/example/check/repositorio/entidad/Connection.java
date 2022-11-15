@@ -13,8 +13,13 @@ public class Connection {
 
     public boolean isConnected() {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
-        return activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+        if (activeNetwork != null) {
+            boolean conectadoInternet = (activeNetwork.getType() == ConnectivityManager.TYPE_WIFI);
+            boolean conectadoDatos = (activeNetwork.getType() == ConnectivityManager.TYPE_MOBILE);
+            return conectadoInternet || conectadoDatos;
+        } else {
+            return false;
+        }
     }
 }

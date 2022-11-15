@@ -66,8 +66,8 @@ public class FragmentoGaleria extends Fragment {
                     throw new ExcepcionTareaFB(Objects.requireNonNull(task.getException()).getMessage());
                 } else {
                     DestinosViaje destinosViaje1 = new DestinosViaje();
-                    destinosViaje1.nombre = "Todas las expediciones";
-                    destinosViaje1.imagen = "https://checknewplaces.com/wp-content/uploads/2021/09/Puerta-de-Orion-@ecoturismoguaviare-2.jpg";
+                    destinosViaje1.nombre = getString(R.string.titulo_todas_expediciones);
+                    destinosViaje1.imagen = getString(R.string.url_imagen_destinos);
                     destinosViajes.add(destinosViaje1);
 
                     for (DataSnapshot ds : task.getResult().getChildren()) {

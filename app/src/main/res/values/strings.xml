@@ -59,6 +59,8 @@
     <string name="titulo_registrar">Registrarme</string>
     <string name="ultimas_publicaciones">Ultimas publicaciones</string>
     <string name="subir_foto">Subir foto</string>
-    <string name="algo_salio_mal">Algo salio mal...</string>
+    <string name="algo_salio_mal">Algo salio mal…</string>
     <string name="titulo_confirmar">Confirmar</string>
+    <string name="url_imagen_destinos">https://checknewplaces.com/wp-content/uploads/2021/09/Puerta-de-Orion-@ecoturismoguaviare-2.jpg</string>
+    <string name="titulo_todas_expediciones">Todas las expediciones</string>
 </resources>

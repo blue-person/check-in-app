@@ -126,7 +126,7 @@ public class ActividadPrincipal extends AppCompatActivity {
                 try {
                     ActividadPrincipal.this.startActivity(whatsappIntent);
                 } catch (android.content.ActivityNotFoundException ex) {
-                    logger.info("Whatsapp have not been installed.");
+                    logger.info("El usuario no tiene instalado Whatsapp");
                 }
             });
 
@@ -185,7 +185,6 @@ public class ActividadPrincipal extends AppCompatActivity {
         }
 
         if (requestCode == 1) {
-            //error
             assert data != null;
             Uri currentUri = data.getData();
 
@@ -227,7 +226,7 @@ public class ActividadPrincipal extends AppCompatActivity {
         imagedbs.clear();
 
         String tag = view.getTag().toString();
-        if (tag.equals("Todas las expediciones")) {
+        if (tag.equals(getString(R.string.titulo_todas_expediciones))) {
             imagedbs.addAll(ImagenDao.imagedbs);
         } else {
             for (Imagedb item : ImagenDao.imagedbs) {
