@@ -12,8 +12,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.check.controlador.fragmento.FragmentoLogin;
-import com.example.check.controlador.fragmento.FragmentoRegistro;
+import com.example.check.controlador.fragmento.Fragmento_Login;
+import com.example.check.controlador.fragmento.RegistroFragmento;
 import com.example.check.repositorio.dao.AutenticacionDao;
 import com.example.check.repositorio.entidad.Usuario;
 import com.example.check.servicio.firebase.ServicioFirebase;
@@ -43,10 +43,9 @@ public class ActividadInicio extends AppCompatActivity {
         servicioFirebase = new ServicioFirebase();
 
         @SuppressLint({"MissingInflatedId", "LocalSuppress"}) SmoothBottomBar smoothBottomBar = findViewById(R.id.log_sbar);
-        remplazar(new FragmentoLogin());
+        remplazar(new Fragmento_Login());
 
         smoothBottomBar.setOnItemSelected((Function1<? super Integer, Unit>) o -> {
-<<<<<<< Updated upstream
             switch (o) {
                 case 0:
                     remplazar(new Fragmento_Login());
@@ -55,12 +54,6 @@ public class ActividadInicio extends AppCompatActivity {
                     remplazar(new RegistroFragmento());
                     break;
 
-=======
-            if (o == 0) {
-                remplazar(new FragmentoLogin());
-            } else if (o == 1) {
-                remplazar(new FragmentoRegistro());
->>>>>>> Stashed changes
             }
             return null;
         });
