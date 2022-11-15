@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/home"
-        android:title="Iniciar Sesión"
+        android:title="@string/iniciar_sesion"
         android:icon="@drawable/ic_home"
         app:cnb_backgroundColor="@color/check1.2"
         app:cnb_iconColor="@color/check2"
@@ -15,7 +15,7 @@
 
     <item
         android:id="@+id/share"
-        android:title="Registrate"
+        android:title="@string/registrate"
         android:icon="@drawable/ic_photo"
         app:cnb_backgroundColor="@color/check1.2"
         app:cnb_iconColor="@color/check2"

@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginBottom="4dp"
-                android:text="En busca de placeholder"
+                android:text="@string/en_busca_de_placeholder"
                 android:textSize="12sp" />
 
         </LinearLayout>

@@ -61,4 +61,23 @@
     <string name="subir_foto">Subir foto</string>
     <string name="algo_salio_mal">Algo salio mal...</string>
     <string name="titulo_confirmar">Confirmar</string>
+    <string name="iniciar_sesi_n">Iniciar Sesión</string>
+    <string name="iniciar_sesion">iniciar sesion</string>
+    <string name="inicio">Inicio</string>
+    <string name="fotos">Fotos</string>
+    <string name="perfil">Perfil</string>
+    <string name="no_tiene_conexi_n_a_internet">No tiene conexión a internet</string>
+    <string name="d_a_1">Día 1</string>
+    <string name="viernes_17_de_junio">Viernes 17 de Junio</string>
+    <string name="eventos">✓️ Eventos</string>
+    <string name="n_n_desayuno_n_n_ruta_oion_vista_puerta_de_ori_n_ca_o_sabana_y_cascada_tranquilandia_n_n_traslado_al_aeropuerto_n_n_vuelo_san_jos_del_guaviare_bogot">\n\n Desayuno \n\n Ruta Oion: Vista Puerta de Orión, Caño Sabana y Cascada Tranquilandia \n\n Traslado al aeropuerto \n\n Vuelo San José del Guaviare - Bogotá</string>
+    <string name="en_busca_de_placeholder">En busca de placeholder</string>
+    <string name="expedicion">Expedicion</string>
+    <string name="cerrar_sesi_n">Cerrar Sesión</string>
+    <string name="usuario">Usuario</string>
+    <string name="esta_seguro_que_quiere_subir_esta_foto">¿Esta seguro que quiere subir esta foto?</string>
+    <string name="descartar">Descartar</string>
+    <string name="confirmar">Confirmar</string>
+    <string name="mensaje">mensaje</string>
+    <string name="informacion">informacion</string>
 </resources>

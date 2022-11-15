@@ -72,8 +72,7 @@
                     android:layout_gravity="left"
                     android:gravity="left"
                     android:padding="5dp"
-                    android:text="\n\n Desayuno \n\n Ruta Oion: Vista Puerta de Orión, Caño Sabana y Cascada Tranquilandia
-\n\n Traslado al aeropuerto \n\n Vuelo San José del Guaviare - Bogotá" />
+                    android:text="@string/n_n_desayuno_n_n_ruta_oion_vista_puerta_de_ori_n_ca_o_sabana_y_cascada_tranquilandia_n_n_traslado_al_aeropuerto_n_n_vuelo_san_jos_del_guaviare_bogot" />
             </LinearLayout>
         </LinearLayout>
 

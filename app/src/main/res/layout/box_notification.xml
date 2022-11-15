@@ -18,7 +18,7 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:padding="15dp"
-                android:text="mensaje"
+                android:text="@string/mensaje"
                 android:textColor="@color/text"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -56,7 +56,7 @@
                     android:gravity="left"
 
                     android:layout_marginStart="10dp"
-                    android:text="informacion"
+                    android:text="@string/informacion"
                     android:textColor="@color/text"
                     android:textSize="16sp"></TextView>
 

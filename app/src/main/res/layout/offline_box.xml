@@ -52,7 +52,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="No tiene conexión a internet"
+                    android:text="@string/no_tiene_conexi_n_a_internet"
                     android:textColor="@color/black"
                     android:textSize="16sp">
                 </TextView>
