@@ -94,19 +94,19 @@ public class FragmentoGaleria extends Fragment {
                 }
 
                 @Override
-                public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) { //NOSONAR
                 }
 
                 @Override
-                public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+                public void onChildRemoved(@NonNull DataSnapshot snapshot) { //NOSONAR
                 }
 
                 @Override
-                public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) { //NOSONAR
                 }
 
                 @Override
-                public void onCancelled(@NonNull DatabaseError error) {
+                public void onCancelled(@NonNull DatabaseError error) { //NOSONAR
                 }
             });
         }
