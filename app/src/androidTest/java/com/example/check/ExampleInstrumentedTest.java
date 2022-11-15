@@ -1,4 +1,4 @@
-3package com.example.check;
+package com.example.check;
 
 import android.content.Context;
 
@@ -9,6 +9,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static org.junit.Assert.*;
+
+import com.example.check.repositorio.dao.AutenticacionDao;
 
 /**
  * Instrumented test, which will execute on an Android device.

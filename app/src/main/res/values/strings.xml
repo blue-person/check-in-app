@@ -1,8 +1,6 @@
 <resources>
     <string name="app_name">CHECK</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="nuestras_expediciones">Nuestras expediciones</string>
+    <!-- Generados automaticamene -->
     <string name="email">email</string>
     <string name="contrase_a">contraseña</string>
     <string name="entra">entra</string>
@@ -31,4 +29,59 @@
     <string name="login_failed">"Login failed"</string>
     <string name="seleccionar_usuario">Seleccionar Usuario</string>
     <string name="escribe_un_mensaje">Escribe un mensaje</string>
+
+    <!-- Generados manualmente -->
+    <string name="mensaje_inicio">Nuestras expediciones</string>
+    <string name="mensaje_galeria">Comparte con nosotros</string>
+    <string name="mensaje_perfil">Busca tu identidad</string>
+    <string name="alerta_titulo_confirmacion_foto">Confirmacion</string>
+    <string name="alerta_info_confirmacion_foto">Esta seguro que quiere subir esta imagen</string>
+    <string name="error_titulo_credenciales">Error de credenciales</string>
+    <string name="error_info_credenciales">Revise su correo y contraseña</string>
+    <string name="alerta_subir_foto">Subiendo foto</string>
+    <string name="alerta_actualizar_info">Actualizando…</string>
+    <string name="crear_publicacion">Crea una nueva publicación</string>
+    <string name="tomar_foto">Tomar una foto</string>
+    <string name="subir_desde_galeria">Subir desde la galeria</string>
+    <string name="info_unirse_expedicion">Haz parte de nuestras expediciones</string>
+    <string name="titulo_expedicion">expedición</string>
+    <string name="titulo_lugar">lugar</string>
+    <string name="titulo_proposito">propósito</string>
+    <string name="compartir_con_amigos">Compartir con amigos</string>
+    <string name="configurar_expedicion">Configurar como mi expedicion</string>
+    <string name="hacer_reserva">¡Hacer mi reserva ahora!</string>
+    <string name="mensaje_viajes_promocion">Viaja con propósito a destinos remotos de Colombia</string>
+    <string name="titulo_correo">Correo</string>
+    <string name="titulo_pass">Contraseña</string>
+    <string name="titulo_ingresar">Ingresar</string>
+    <string name="titulo_nombre">Nombre</string>
+    <string name="titulo_confirmar_pass">Confirmar contraseña</string>
+    <string name="titulo_registrar">Registrarme</string>
+    <string name="ultimas_publicaciones">Ultimas publicaciones</string>
+    <string name="subir_foto">Subir foto</string>
+    <string name="algo_salio_mal">Algo salio mal...</string>
+    <string name="titulo_confirmar">Confirmar</string>
+    <string name="titulo_todas_expediciones">Todas las expediciones</string>
+    <string name="nuestras_expediciones">Nuestras expediciones</string>
+    <string name="galeria">Galeria</string>
+    <string name="url_imagen_destinos">https://checknewplaces.com/wp-content/uploads/2021/09/Puerta-de-Orion-@ecoturismoguaviare-2.jpg</string>
+    <string name="iniciar_sesi_n">Iniciar Sesión</string>
+    <string name="iniciar_sesion">iniciar sesion</string>
+    <string name="inicio">Inicio</string>
+    <string name="fotos">Fotos</string>
+    <string name="perfil">Perfil</string>
+    <string name="no_tiene_conexi_n_a_internet">No tiene conexión a internet</string>
+    <string name="d_a_1">Día 1</string>
+    <string name="viernes_17_de_junio">Viernes 17 de Junio</string>
+    <string name="eventos">✓️ Eventos</string>
+    <string name="n_n_desayuno_n_n_ruta_oion_vista_puerta_de_ori_n_ca_o_sabana_y_cascada_tranquilandia_n_n_traslado_al_aeropuerto_n_n_vuelo_san_jos_del_guaviare_bogot">\n\n Desayuno \n\n Ruta Oion: Vista Puerta de Orión, Caño Sabana y Cascada Tranquilandia \n\n Traslado al aeropuerto \n\n Vuelo San José del Guaviare - Bogotá</string>
+    <string name="en_busca_de_placeholder">En busca de placeholder</string>
+    <string name="expedicion">Expedicion</string>
+    <string name="cerrar_sesi_n">Cerrar Sesión</string>
+    <string name="usuario">Usuario</string>
+    <string name="esta_seguro_que_quiere_subir_esta_foto">¿Esta seguro que quiere subir esta foto?</string>
+    <string name="descartar">Descartar</string>
+    <string name="confirmar">Confirmar</string>
+    <string name="mensaje">mensaje</string>
+    <string name="informacion">informacion</string>
 </resources>

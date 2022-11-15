@@ -1,83 +1,124 @@
 plugins {
-    id 'com.android.application'
-    id 'com.google.gms.google-services'
+    id "com.android.application"
+    id "com.google.gms.google-services"
+    id "kotlin-android"
+    id "jacoco"
+    id "org.sonarqube" version "3.5.0.2730"
+}
+
+task jacocoTestReport(type: JacocoReport, dependsOn: ["testDebugUnitTest", "createDebugAndroidTestCoverageReport", "connectedAndroidTest"]) {
+    reports {
+        xml.enabled true
+        html.enabled true
+    }
+
+    def fileFilter = []
+    def debugTree = fileTree(dir: "${buildDir}/intermediates/classes/debug", excludes: fileFilter)
+    def mainSrc = "${project.projectDir}/src/main/java"
+
+    sourceDirectories.setFrom(files([mainSrc]))
+    classDirectories.setFrom(files([debugTree]))
+    executionData.setFrom(fileTree(dir: "$buildDir", includes: ["jacoco/testDebugUnitTest.exec",
+                                                                "outputs/code-coverage/connected/*coverage.ec"]))
+
+}
+
+sonarqube {
+    properties {
+        property "sonar.projectKey", "blue-person_check-in-app"
+        property "sonar.organization", "blue-person"
+        property "sonar.host.url", "https://sonarcloud.io"
+    }
 }
 
 android {
-    compileSdk 32
-
-
+    namespace "com.example.check"
+    compileSdk 33
+    buildToolsVersion "33.0.0"
 
     defaultConfig {
         applicationId "com.example.check"
         minSdk 25
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    testOptions {
+        unitTests.all {
+            jacoco {
+                includeNoLocationClasses = true
+                excludes = ["jdk.internal.*"]
+            }
+        }
+        unitTests.returnDefaultValues = true
+    }
+    
+    lintOptions {
+        abortOnError false
+    }
+
     buildTypes {
+        debug {
+            testCoverageEnabled true
+        }
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
         }
     }
-    compileOptions {
-        sourceCompatibility = 1.8
-        targetCompatibility = 1.8
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    buildFeatures{
+
+    buildFeatures {
         viewBinding true
+    }
+    
+    dependenciesInfo {
+        includeInBundle false
+        includeInApk false
     }
 }
 
 dependencies {
-
-    implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation 'com.google.android.material:material:1.5.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
-    implementation 'com.google.firebase:firebase-auth:21.0.3'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.navigation:navigation-runtime-ktx:2.3.5'
-    implementation 'com.google.firebase:firebase-storage:20.0.1'
-    implementation 'com.google.firebase:firebase-firestore:24.1.0'
-    implementation 'com.google.firebase:firebase-database:20.0.4'
-    implementation 'androidx.navigation:navigation-runtime-ktx:2.4.2'
-    implementation 'androidx.annotation:annotation:1.2.0'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
-
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-
-    implementation 'com.google.android.material:material:1.5.0'
-    implementation 'com.squareup.picasso:picasso:2.71828'
-    implementation 'com.flaviofaria:kenburnsview:1.0.7'
+    implementation "androidx.annotation:annotation:1.5.0"
+    implementation "androidx.appcompat:appcompat:1.5.1"
+    implementation "androidx.constraintlayout:constraintlayout:2.1.4"
+    implementation "androidx.legacy:legacy-support-v4:1.0.0"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.1"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
+    implementation "androidx.multidex:multidex:2.0.1"
+    implementation "androidx.navigation:navigation-runtime-ktx:2.5.3"
+    implementation "androidx.navigation:navigation-runtime-ktx:2.5.3"
     implementation "androidx.viewpager2:viewpager2:1.0.0"
-    implementation 'com.github.ibrahimsn98:SmoothBottomBar:1.7.9'
-    implementation 'com.makeramen:roundedimageview:2.3.0'
-    implementation 'com.intuit.sdp:sdp-android:1.0.6'
-    implementation 'com.intuit.ssp:ssp-android:1.0.6'
-    implementation 'com.github.ismaeldivita:chip-navigation-bar:1.4.0'
-    implementation 'com.github.dhaval2404:imagepicker:2.1'
-
-    implementation 'com.firebaseui:firebase-ui-storage:7.2.0'
-
-
-
-
-     //FIREBASE
-
-    implementation 'com.google.firebase:firebase-storage:20.0.1'
-    implementation 'com.google.firebase:firebase-messaging:23.0.3'
-    implementation 'com.google.firebase:firebase-firestore:24.1.1'
-
-    implementation 'androidx.multidex:multidex:2.0.1'
-
-
+    implementation "com.airbnb.android:lottie:5.2.0"
+    implementation "com.firebaseui:firebase-ui-storage:7.2.0"
+    implementation "com.flaviofaria:kenburnsview:1.0.7"
+    implementation "com.github.dhaval2404:imagepicker:2.1"
+    implementation "com.github.ibrahimsn98:SmoothBottomBar:1.7.9"
+    implementation "com.github.ismaeldivita:chip-navigation-bar:1.4.0"
+    implementation "com.github.thomhurst:ExpandableHintText:1.0.7"
+    implementation "com.google.android.material:material:1.7.0"
+    implementation "com.google.android.material:material:1.7.0"
+    implementation "com.google.firebase:firebase-auth:21.1.0"
+    implementation "com.google.firebase:firebase-database:20.1.0"
+    implementation "com.google.firebase:firebase-firestore:24.4.0"
+    implementation "com.google.firebase:firebase-firestore:24.4.0"
+    implementation "com.google.firebase:firebase-messaging:23.1.0"
+    implementation "com.google.firebase:firebase-storage:20.1.0"
+    implementation "com.google.firebase:firebase-storage:20.1.0"
+    implementation "com.intuit.sdp:sdp-android:1.0.6"
+    implementation "com.intuit.ssp:ssp-android:1.0.6"
+    implementation "com.makeramen:roundedimageview:2.3.0"
+    implementation "com.squareup.picasso:picasso:2.71828"
+    testImplementation "junit:junit:4.13.2"
+    testImplementation "org.jacoco:org.jacoco.agent:0.8.8"
+    testImplementation 'org.mockito:mockito-core:1.10.19'
+    androidTestImplementation "androidx.test.espresso:espresso-core:3.5.0"
+    androidTestImplementation "androidx.test.ext:junit:1.1.4"
 }
