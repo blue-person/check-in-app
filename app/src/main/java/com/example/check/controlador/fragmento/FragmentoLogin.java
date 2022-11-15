@@ -11,6 +11,7 @@ import com.example.check.R;
 
 public class FragmentoLogin extends Fragment {
     public FragmentoLogin() {
+        // Required empty public constructor
     }
 
     @Override

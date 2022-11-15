@@ -38,6 +38,7 @@ public class FragmentoPerfil extends Fragment {
     private Usuario usuario;
 
     public FragmentoPerfil() {
+        // Required empty public constructor
     }
 
     @Override
@@ -99,7 +100,7 @@ public class FragmentoPerfil extends Fragment {
         viewPager.setClipToPadding(false);
         viewPager.setClipChildren(false);
         viewPager.setOffscreenPageLimit(5);
-        viewPager.getChildAt(0).setOverScrollMode(RecyclerView.OVER_SCROLL_NEVER);
+        viewPager.getChildAt(0).setOverScrollMode(RecyclerView.OVER_SCROLL_NEVER); //NOSONAR
 
         CompositePageTransformer compositePageTransformer = new CompositePageTransformer();
         compositePageTransformer.addTransformer(new MarginPageTransformer(20));

@@ -28,6 +28,7 @@ import java.util.Objects;
 
 public class FragmentoInicio extends Fragment {
     public FragmentoInicio() {
+        // Required empty public constructor
     }
 
     @Override
