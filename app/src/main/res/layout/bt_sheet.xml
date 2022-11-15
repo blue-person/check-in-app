@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="15dp"
-        android:text="Haz parte de nuestras expediciones"
+        android:text="@string/info_unirse_expedicion"
         android:textColor="@color/text"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -36,10 +36,7 @@
             android:layout_height="100dp"
             android:layout_margin="10dp"
             android:scaleType="centerCrop"
-
             app:riv_corner_radius="10dp"
-
-
             />
 
         <LinearLayout
@@ -53,7 +50,7 @@
                 android:id="@+id/expedicion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="expedición"
+                android:text="@string/titulo_expedicion"
                 android:textColor="@color/text"
                 android:textSize="17sp"
                 android:textStyle="bold" />
@@ -62,15 +59,14 @@
                 android:id="@+id/lugar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="lugar"
+                android:text="@string/titulo_lugar"
                 android:textColor="@color/text"
                 android:textSize="15sp" />
 
             <TextView
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="propósito"
+                android:text="@string/titulo_proposito"
                 android:textColor="@color/blue"
                 android:textSize="16sp" />
         </LinearLayout>
@@ -101,14 +97,15 @@
             android:layout_marginStart="10dp"
             android:contentDescription="@string/app_name"
             android:src="@drawable/ic_share"
-            android:tint="@color/text"></ImageView>
+            app:tint="@color/text">
+        </ImageView>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
-            android:text="Compartir con amigos"
+            android:text="@string/compartir_con_amigos"
             android:textColor="@color/text" />
 
     </LinearLayout>
@@ -130,14 +127,15 @@
             android:layout_marginStart="10dp"
             android:contentDescription="@string/app_name"
             android:src="@drawable/ic_location"
-            android:tint="@color/text"></ImageView>
+            app:tint="@color/text">
+        </ImageView>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
-            android:text="Configurar como mi expedicion"
+            android:text="@string/configurar_expedicion"
             android:textColor="@color/text" />
 
     </LinearLayout>
@@ -159,7 +157,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/bg_button"
-        android:text="¡Hacer mi reserva ahora!"
+        android:text="@string/hacer_reserva"
         android:textColor="@color/white"
         android:textSize="15sp" />
 
